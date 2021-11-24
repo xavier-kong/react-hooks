@@ -1,3 +1,10 @@
+# Hi I am learning about the more advanced react hooks, (i.e. other than useEffect and useState)
+
+Instead of following a video tutorial like I usually do, I will be reading the official documentation https://reactjs.org/docs/hooks-intro.html.
+
+This is a skill that I believe I need to cultivate, as documentation is usually the most straight forward to learn about new technologies or concepts.
+
+
 # Nano React App Default Javascript Template
 
 The default template project for [nano-react-app](https://github.com/nano-react-app/nano-react-app).
