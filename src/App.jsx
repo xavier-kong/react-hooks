@@ -1,40 +1,32 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useReducer } from 'react';
 
-const themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
+const initialState = {count: 0};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1};
+    case 'decrement':
+      return {count: state.count - 1};
+    default:
+      throw new Error();
   }
-};
-
-const ThemeContext = React.createContext(themes.light);
-
-function ThemedButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
-    </button>
-  );
 }
 
-function Toolbar(props) {
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <div>
-      <ThemedButton />
-    </div>
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      <button onClick={() => dispatch({type: 'increment'})}>+</button>
+    </>
   );
 }
 
 function App() {
   return (
-    <ThemeContext.Provider value={themes.dark}>
-      <Toolbar />
-    </ThemeContext.Provider>
+    <Counter />
   );
 }
 
