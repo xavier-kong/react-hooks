@@ -22,4 +22,4 @@ function App() {
 export default App;
 
 
-// https://reactjs.org/docs/hooks-effect.html
+// https://reactjs.org/docs/hooks-rules.html
